@@ -11,7 +11,6 @@ class skurkHandler(BaseHTTPRequestHandler):
         s = self.path
         sep = [s.find('?'), s.find('&'), s.find('#'), len(s)]
         sep = min([x for x in sep if x != -1])
-        print(sep)
         self.path = self.path[:sep]
 
     def _set_response(self, method):
@@ -34,7 +33,6 @@ class skurkHandler(BaseHTTPRequestHandler):
             for header in headers:
                 self.send_header(header, headers[header])
             
-            print(headers)
             self.end_headers()
             if  handler_rules[self.path]["file"] != "":
                 f = open(handler_rules[self.path]["file"],'r')
