@@ -7,12 +7,18 @@
             "file":""
         }
     },
-    "common_headers":{},
+    "common_headers":{"Content-Type":"text/html"},
     "GET":{
         "common_headers":{},
         "/":{
             "code":"200",
-            "headers":{"Content-Type":"text/asdf", "my-test-header":"asdfasdfasdf"},
+            "headers":{"Content-Type":"asdf/asdf","my-test-header":"asdfasdfasdf"},
+            "body":"<html><head><title>Title</title></head><body>Body</body></html>",
+            "file":"index.html"
+        },
+        "/asdf":{
+            "code":"200",
+            "headers":{},
             "body":"<html><head><title>Title</title></head><body>Body</body></html>",
             "file":"index.html"
         }

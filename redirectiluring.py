@@ -25,8 +25,16 @@ class skurkHandler(BaseHTTPRequestHandler):
                 self.path = "/"
 
             self.send_response(int(handler_rules[self.path]["code"]))
+            
+            headers = {}
+            for header in server_data["common_headers"]:
+                headers[header] = server_data["common_headers"][header]
             for header in handler_rules[self.path]["headers"]:
-                self.send_header(header, handler_rules[self.path]["headers"][header])
+                headers[header] = handler_rules[self.path]["headers"][header]
+            for header in headers:
+                self.send_header(header, headers[header])
+            
+            print(headers)
             self.end_headers()
             if  handler_rules[self.path]["file"] != "":
                 f = open(handler_rules[self.path]["file"],'r')
