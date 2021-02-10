@@ -5,16 +5,18 @@
             "headers":{"Content-Type":"text/html"}
         }
     },
+    "common":{},
     "GET":{
         "default":{
             "code":"200",
             "headers":{"Content-Type":"text/html"}
         },
+        "common":{},
         "/":{
             "code":"200",
             "headers":{"Content-Type":"text/asdf"},
             "body":"<html><head><title>Title</title></head><body>Body</body></html>",
-            "file":""
+            "file":"index.html"
         }
     },
     "POST":{},

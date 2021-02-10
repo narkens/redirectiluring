@@ -21,6 +21,13 @@ class skurkHandler(BaseHTTPRequestHandler):
             for header in handler_rules[self.path]["headers"]:
                 self.send_header(header, handler_rules[self.path]["headers"][header])
             self.end_headers()
+            if  handler_rules[self.path]["file"] != "":
+                f = open(handler_rules[self.path]["file"],'r')
+                body = f.read()
+                f.close()
+                self.wfile.write(body.encode('utf-8'))
+            elif handler_rules[self.path]["body"] != "":
+                self.wfile.write(handler_rules[self.path]["body"].encode('utf-8'))
         
     def do_GET(self):
         self._set_response(server_data["GET"])
