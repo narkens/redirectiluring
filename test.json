@@ -1,20 +1,18 @@
 {
     "default":{
-        "default":{
-            "code":"200",
-            "headers":{"Content-Type":"text/html"}
-        }
-    },
-    "common":{},
-    "GET":{
-        "default":{
-            "code":"200",
-            "headers":{"Content-Type":"text/html"}
-        },
-        "common":{},
         "/":{
             "code":"200",
-            "headers":{"Content-Type":"text/asdf"},
+            "headers":{"Content-Type":"text/html"},
+            "body":"<html><head><title>Title</title></head><body>Body</body></html>",
+            "file":""
+        }
+    },
+    "common_headers":{},
+    "GET":{
+        "common_headers":{},
+        "/":{
+            "code":"200",
+            "headers":{"Content-Type":"text/asdf", "my-test-header":"asdfasdfasdf"},
             "body":"<html><head><title>Title</title></head><body>Body</body></html>",
             "file":"index.html"
         }
